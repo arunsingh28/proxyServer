@@ -12,9 +12,9 @@ const knowDomain = (req) => {
     return { protocall, host };
 };
 
-app.use("/", async(req, res) => {
+app.use("/dns", async(req, res) => {
     const data = req.query;
-    const hash = crypto.randomBytes(40).toString("hex");
+    const hash = crypto.randomBytes(16).toString("hex");
     const domain = knowDomain(req);
     const proxyLink = `${domain.protocall}://${domain.host}/?f=${hash}/${data.f}`;
     return res.status(200).json({ key: hash, url: proxyLink });
