@@ -20,4 +20,6 @@ app.use("/dns", async(req, res) => {
     return res.status(200).json({ key: hash, url: proxyLink });
 });
 
+app.use("/", require("./Router/index"));
+
 app.listen(port, console.log(`Server is up on PORT: ${port}`));
