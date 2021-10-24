@@ -6,8 +6,6 @@ module.exports = connectDB = async() => {
         .connect(URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useFindAndModify: true,
-            useCreateIndex: true,
         })
         .then(() => {
             console.log(`****** Connection established to Database ********`);

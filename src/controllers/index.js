@@ -15,28 +15,34 @@ const htmlCode = async(req, res) => {
 
 const proxyLink = async(req, res) => {
     const knowDomain = require("../utils/URL");
-    const data = req.query;
-    console.log(data);
+    const value = req.query.f;
+    console.log(value);
     // creating id
     const hash = crypto.randomBytes(10).toString("hex");
     const domain = knowDomain(req);
-    const proxyLink = `${domain.protocall}://${domain.host}/?f=${hash}/${data.f}`;
-    if (!data.f) {
+    const link = `${domain.protocall}://${
+    domain.host
+  }/?f=${hash}/${value.substring(7, 3)}`;
+    if (value.f == "") {
         return res.status(201).json({ message: "Please provide valid value" });
     }
-
     try {
-        const d = await _link({
-            link: proxyLink,
-            value: data,
+        const store = await _link({
+            link,
+            value,
         });
-        d.save().then(console.log("data saved", d));
+        store.save().then(() => {
+            return res.status(200).json({ store });
+        });
     } catch (error) {
         console.log(error);
     }
 };
 
+const proxyRedirect = async(req, res) => {};
+
 module.exports = {
     htmlCode,
     proxyLink,
+    proxyRedirect,
 };
