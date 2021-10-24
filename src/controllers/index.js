@@ -45,7 +45,7 @@ const proxyRedirect = async(req, res) => {
     if (!getValue) {
         return res.status(201).json({ message: "invalid link or link change" });
     }
-    return res.redirect(`https://${getValue.value}`).end();
+    return res.redirect(`${getValue.value}`);
 };
 
 const allLinks = async(req, res) => {
