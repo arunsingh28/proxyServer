@@ -4,7 +4,7 @@
 
 - #### For creating Links use
 
-localhost:4000/dns?f=<i>FILE_NAME</i>
+localhost:4000/dns?f=<i>YOUR_SCEURE_LINK</i>
 
 it will give a link which is refer to your value.
 
