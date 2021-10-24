@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express.Router();
-const { htmlCode, proxyLink, proxyRedirect } = require("../controllers/index");
+const {
+    htmlCode,
+    proxyLink,
+    proxyRedirect,
+    allLinks,
+} = require("../controllers/index");
 
 // site scraping
 
@@ -16,5 +21,7 @@ app.get("/html", htmlCode);
 app.get("/dns", proxyLink);
 
 app.get("/look", proxyRedirect);
+
+app.get("/a", allLinks);
 
 module.exports = app;

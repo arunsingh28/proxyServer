@@ -49,8 +49,8 @@ const proxyRedirect = async(req, res) => {
 };
 
 const allLinks = async(req, res) => {
-    const allLink = await _link.find();
-    return res.status(200).json(allLink);
+    const allLink = await _link.find().select("-createAt -_id -__v");
+    return res.status(200).send(allLink);
 };
 
 module.exports = {
