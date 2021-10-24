@@ -15,3 +15,5 @@ copy that link and use that link to your frontend servers.
 - #### For visit Links use
 
 localhost:4000/look?q=<i>COPIED_URL</i>
+
+it will automatically redirect to that value or link
