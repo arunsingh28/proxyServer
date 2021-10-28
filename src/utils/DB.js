@@ -17,3 +17,7 @@ module.exports = connectDB = async() => {
             );
         });
 };
+
+
+// init DB
+connectDB();
